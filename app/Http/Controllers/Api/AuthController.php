@@ -5,18 +5,20 @@ namespace App\Http\Controllers\Api;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $validatedData = $request->validate([
-            'name'=>'required|max:55',
-            'email'=>'email|required|unique:users',
-            'mobile'=>'required',
-            'password'=>'required|confirmed'
-        ]);
-
+        try {
+            if ($this->validator($request->all())->validate()->fails()) {
+                return response()->json("Check Required Fields");
+            }
+        } catch (ValidationException $e) {
+        }
+        $this->validator($request->all())->validate();
         $validatedData['password'] = bcrypt($request->password);
 
         $user = User::create($validatedData);
@@ -48,5 +50,15 @@ class AuthController extends Controller
     public function user()
     {
         return auth()->user();
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'mobile' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
     }
 }
