@@ -25,3 +25,4 @@ Route::post('/register','Api\AuthController@register');
 Route::get('/user','Api\AuthController@user')->middleware('auth:api');
 Route::resource('doctors','Admin\DoctorController');
 Route::resource('hospitals','Admin\HospitalController');
+Route::resource('departments','Admin\DepartmentController');

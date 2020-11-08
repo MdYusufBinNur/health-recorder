@@ -10,12 +10,6 @@ use Illuminate\Http\Response;
 
 class HospitalController extends Controller
 {
-    public $common;
-    public function __construct(Common $common)
-    {
-        return $this->common = $common;
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +38,7 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->common->_insert($request,'hospital');
+        return Common::_insert($request,'hospital');
     }
 
     /**

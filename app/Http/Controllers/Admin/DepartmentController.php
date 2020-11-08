@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin\Department;
+use App\Helper\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -32,11 +33,11 @@ class DepartmentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        return Common::_insert($request,'department');
     }
 
     /**

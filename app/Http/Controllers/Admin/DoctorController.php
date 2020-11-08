@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Admin\Doctor;
+use App\Helper\Common;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -30,12 +32,12 @@ class DoctorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        return Common::_insert($request,'doctor');
     }
 
     /**
@@ -63,7 +65,7 @@ class DoctorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\Admin\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
