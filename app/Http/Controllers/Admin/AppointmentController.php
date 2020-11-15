@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin\Appointment;
+use App\Helper\Common;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AppointmentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +24,7 @@ class AppointmentController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -31,19 +34,19 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
-        //
+       return Common::_insert($request, 'appointment');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin\Appointment  $appointment
-     * @return \Illuminate\Http\Response
+     * @param Appointment $appointment
+     * @return Response
      */
     public function show(Appointment $appointment)
     {
@@ -53,34 +56,34 @@ class AppointmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin\Appointment  $appointment
-     * @return \Illuminate\Http\Response
+     * @param Appointment $appointment
+     * @return Response
      */
     public function edit(Appointment $appointment)
     {
-        //
+        return "hi";
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin\Appointment  $appointment
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Appointment $appointment
+     * @return JsonResponse
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin\Appointment  $appointment
-     * @return \Illuminate\Http\Response
+     * @param Appointment $appointment
+     * @return JsonResponse
      */
     public function destroy(Appointment $appointment)
     {
-        //
+        return Common::_delete($appointment, 'appointment');
     }
 }

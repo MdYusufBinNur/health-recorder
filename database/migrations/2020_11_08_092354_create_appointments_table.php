@@ -22,6 +22,9 @@ class CreateAppointmentsTable extends Migration
             $table->longText('patient_address');
             $table->string('patient_contact');
             $table->double('patient_age')->default(10);
+            $table->time('time')->nullable();
+            $table->date('date')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
 
             $table->foreign('doctor_id')

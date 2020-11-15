@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Admin\Appointment;
 use App\Admin\Department;
 use App\Admin\Doctor;
 use App\Admin\Hospital;
@@ -28,5 +29,9 @@ class ApiController extends Controller
     public function getDoctorWiseHospital($id)
     {
         return response()->json(Doctor::with('hospital','department')->where('id','=',$id)->first());
+    }
+    public function getAppointmentList($id)
+    {
+        return response()->json(Appointment::with('doctor.hospital')->where('user_id','=',$id)->get());
     }
 }

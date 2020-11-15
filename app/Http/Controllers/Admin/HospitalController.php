@@ -44,7 +44,7 @@ class HospitalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Admin\Hospital  $hospital
+     * @param Hospital $hospital
      * @return Response
      */
     public function show(Hospital $hospital)
@@ -55,7 +55,7 @@ class HospitalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Admin\Hospital  $hospital
+     * @param Hospital $hospital
      * @return Response
      */
     public function edit(Hospital $hospital)
@@ -67,7 +67,7 @@ class HospitalController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  \App\Admin\Hospital  $hospital
+     * @param Hospital $hospital
      * @return Response
      */
     public function update(Request $request, Hospital $hospital)
@@ -78,11 +78,11 @@ class HospitalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Admin\Hospital  $hospital
-     * @return Response
+     * @param Hospital $hospital
+     * @return JsonResponse
      */
     public function destroy(Hospital $hospital)
     {
-        //
+        return Common::_delete($hospital,'hospital');
     }
 }

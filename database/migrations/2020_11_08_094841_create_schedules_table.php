@@ -20,6 +20,7 @@ class CreateSchedulesTable extends Migration
             $table->string('end_date');
             $table->string('image')->nullable();
             $table->string('time');
+            $table->string('day');
             $table->timestamps();
 
             $table->foreign('user_id')
