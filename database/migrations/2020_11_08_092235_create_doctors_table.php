@@ -19,6 +19,7 @@ class CreateDoctorsTable extends Migration
             $table->unsignedBigInteger('hospital_id');
             $table->string('name');
             $table->string('designation');
+            $table->string('day')->nullable();
             $table->string('image')->nullable();
             $table->string('rating')->default(0);
             $table->timestamps();

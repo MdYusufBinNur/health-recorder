@@ -26,3 +26,7 @@ Route::get('/user','Api\AuthController@user')->middleware('auth:api');
 Route::resource('doctors','Admin\DoctorController');
 Route::resource('hospitals','Admin\HospitalController');
 Route::resource('departments','Admin\DepartmentController');
+Route::get('doctors','Admin\ApiController@getDoctors');
+Route::get('doctor/{id}','Admin\ApiController@getDoctorWiseHospital');
+Route::get('hospitals','Admin\ApiController@getHospitals');
+Route::get('hospital/{id}','Admin\ApiController@getHospitalDetails');
