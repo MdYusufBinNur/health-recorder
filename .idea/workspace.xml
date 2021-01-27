@@ -19,27 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Helper Model Created For Insert Data">
-      <change beforePath="$PROJECT_DIR$/.idea/health-recorder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/health-recorder.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_15_2020_3_19_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_15_2020_3_19_PM__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Hospital View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helper/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/Common.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +212,7 @@
       <workItem from="1604826516955" duration="12006000" />
       <workItem from="1605586520851" duration="301000" />
       <workItem from="1611477902040" duration="1049000" />
-      <workItem from="1611722579315" duration="9110000" />
+      <workItem from="1611722579315" duration="9541000" />
     </task>
     <task id="LOCAL-00001" summary="Helper Model Created For Insert Data">
       <created>1604838156371</created>
@@ -254,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605449780258</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Hospital View">
+      <created>1611732640887</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611732640887</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +263,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial For Office" />
     <MESSAGE value="Helper Model Created For Insert Data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Helper Model Created For Insert Data" />
+    <MESSAGE value="Hospital View" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hospital View" />
   </component>
   <component name="WindowStateProjectService">
     <state x="770" y="399" key="#Composer" timestamp="1603949510493">
@@ -318,10 +307,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611728372810" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605449781520">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611732642169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605449781520" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611732642169" />
     <state x="486" y="70" width="945" height="969" key="search.everywhere.popup" timestamp="1611730063014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
