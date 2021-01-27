@@ -1,28 +1,29 @@
-@extends('layouts.app')
-
+@extends('view.home')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+    <div class="m-5">
+        <div class="nm-register justify-content-center align-items-center d-flex flex-column" >
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
+            @if (session('resent'))
+                <div class="alert alert-success m-2" role="alert">
+                    {{ __('A new link has been sent to your email address. Please check and verify') }}
                 </div>
-            </div>
+            @endif
+
+            <p class="login-p m-3" >{{ __('Verify Your Email Address') }}</p>
+
+            <form class="nm-register-form col-4" method="POST" action="{{ route('verification.resend') }}">
+                @csrf
+
+                <button class="lg-button-submit" type="submit">{{ __('Resend Token') }}</button>
+
+                <div class=" d-flex justify-content-between align-items-center">
+
+                </div>
+
+            </form>
+            <div class="py-3"></div>
+
         </div>
     </div>
-</div>
+
 @endsection

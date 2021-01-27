@@ -66,6 +66,9 @@ class Common
             $request = collect($request);
             $request->forget('photo');
         }
+        if ($request->get('_token')) {
+            $request->forget('_token');
+        }
         if (!empty($request['id']))
         {
             switch ($model) {
@@ -186,6 +189,14 @@ class Common
                 return self::_response('', true, self::MESSAGE_DELETE_ERROR);
             default:
                 break;
+        }
+    }
+    public static function _notify ($data) {
+        return $data;
+        if (!$data->error){
+            return back()->with('success',$data->message);
+        }else{
+            return back()->with('error',$data->message);
         }
     }
 }

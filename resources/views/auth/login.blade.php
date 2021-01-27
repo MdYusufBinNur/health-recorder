@@ -1,73 +1,92 @@
-@extends('layouts.app')
+<html lang="en">
+<head>
+    <meta charset="utf-8">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('Admin/paper_dashboard/assets/img/apple-icon.png') }}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('image/logo.png') }}">
+    {{--    http://127.0.0.1:8000/View/img/logo.png--}}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <title>CMS ADMIN</title>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+    <!-- Canonical SEO -->
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="viewport" content="width=device-width">
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+    <!-- Bootstrap core CSS     -->
+    <link href="{{ asset('Admin/paper_dashboard/assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+    <!--  Paper Dashboard core CSS    -->
+    <link href="{{ asset('Admin/paper_dashboard/assets/css/paper-dashboard.css') }}" rel="stylesheet">
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link  href="{{ asset('Admin/paper_dashboard/assets/css/demo.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('Admin/paper_dashboard/assets/css/themify-icons.css') }}" rel="stylesheet">
+    <!--  Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,300" rel="stylesheet" type="text/css">
+
+<body>
+
+<div class="wrapper wrapper-full-page">
+    <div class="full-page login-page bg-light" data-color="black">
+        <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="card" data-background="color" data-color="blue">
+                                <div class="card-header text-center">
+                                    <h3 class="card-title">Login</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="form-group">
+                                        <label>Email address</label>
+                                        <input id="email" type="email" class="form-control  input-no-border @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong style="color: red">{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input id="password" type="password" class="form-control input-no-border @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong style="color: red;">{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-fill btn-wd ">Let's go</button>
+                                    <div class="forgot">
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <footer class="footer footer-transparent">
+        </footer>
+        <div class="full-page-background" style="background-image: {{ asset('Admin/paper_dashboard/assets/img/background/background-2.jpg') }} "></div></div>
 </div>
-@endsection
+<script src="{{ asset('Admin/paper_dashboard/assets/js/jquery.min.js') }}"  type="text/javascript"></script>
+<script src="{{ asset('Admin/paper_dashboard/assets/js/jquery-ui.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('Admin/paper_dashboard/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+</body>
+</html>
