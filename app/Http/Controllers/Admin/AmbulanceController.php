@@ -1,34 +1,34 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Admin\Hospital;
+
+use App\Admin\Ambulance;
 use App\Helper\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class HospitalController extends Controller
+class AmbulanceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return Application|Factory|Response|View
+     * @return Application|Factory|View|void
      */
     public function index()
     {
-         $hospitals = Hospital::all();
-        return view('Admin.CMS.hospital', compact('hospitals'));
+        $ambulances = Ambulance::all();
+        return view('Admin.CMS.ambulance', compact('ambulances'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return void
      */
     public function create()
     {
@@ -43,28 +43,27 @@ class HospitalController extends Controller
      */
     public function store(Request $request)
     {
-        //return Common::_insert($request,'hospital');
-        return Common::_notify(Common::_insert($request,'hospital'));
+        return Common::_notify(Common::_insert($request,'ambulance'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Hospital $hospital
-     * @return Hospital
+     * @param Ambulance $ambulance
+     * @return Ambulance
      */
-    public function show(Hospital $hospital)
+    public function show(Ambulance $ambulance)
     {
-        return $hospital;
+        return $ambulance;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Hospital $hospital
-     * @return Response
+     * @param Ambulance $ambulance
+     * @return void
      */
-    public function edit(Hospital $hospital)
+    public function edit(Ambulance $ambulance)
     {
         //
     }
@@ -73,10 +72,10 @@ class HospitalController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Hospital $hospital
-     * @return Response
+     * @param Ambulance $ambulance
+     * @return void
      */
-    public function update(Request $request, Hospital $hospital)
+    public function update(Request $request, Ambulance $ambulance)
     {
         //
     }
@@ -84,11 +83,12 @@ class HospitalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Hospital $hospital
+     * @param Ambulance $ambulance
      * @return string
      */
-    public function destroy(Hospital $hospital)
+    public function destroy(Ambulance $ambulance)
     {
-        return Common::_delete($hospital,'hospital');
+//        return $ambulance;
+        return Common::_delete($ambulance,'ambulance');
     }
 }

@@ -7,7 +7,6 @@
 @section('content')
     <div class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -15,10 +14,11 @@
                             <button
                                 class="btn btn-outline-dark  pull-right"
                                 data-toggle="modal"
-                                data-target="#create"
-                            >Add New Ambulance Info</button>
+                                data-target="#Create"
+                            >Add New Department
+                            </button>
                             <div class="form-group pull-left">
-                                <h4><strong>Ambulance Section</strong></h4>
+                                <h4><strong>Department List</strong></h4>
                             </div>
                         </div>
                         <div class="card-content">
@@ -30,33 +30,32 @@
                                        cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th class="text-center"> Owner/Driver</th>
-                                        <th class="text-center"> Mobile</th>
-                                        <th class="text-center"> District</th>
-                                        <th class="text-center"> Area</th>
+                                        <th class="text-center"> Sl</th>
+                                        <th class="text-center"> Name</th>
+                                        <th class="text-center"> Hospital</th>
                                         <th class="text-center disabled-sorting">Actions</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    @if(!empty($ambulances))
-                                        @foreach($ambulances as $ambulance)
+                                    @if(!empty($departments))
+                                        @foreach($departments as $i => $department)
                                             <tr>
-                                                <td class="text-center">{!! $ambulance->name !!}</td>
-                                                <td class="text-center">{!! $ambulance->mobile !!}</td>
-                                                <td class="text-center">{!! $ambulance->district !!}</td>
-                                                <td class="text-center">{!! $ambulance->area !!}</td>
+                                                <td class="text-center">{!! $i+1 !!}</td>
+                                                <td class="text-center">{!! $department->name !!}</td>
+                                                <td class="text-center">{!! $department->hospital->name !!}</td>
                                                 <td class="text-center">
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit"
-                                                       data-toggle="modal" data-body="{{ "ambulance" }}"
-                                                       data-id="{{ $ambulance->id }}" data-target="#Modal"><i
+                                                       data-toggle="modal" data-body="{{ "department" }}"
+                                                       data-id="{{ $department->id }}" data-target="#Modal"><i
                                                             class="ti-pencil-alt"></i></a>
                                                     <a href=""
                                                        class="btn btn-simple btn-danger btn-icon del_brand remove"
-                                                       data-id="{{ $ambulance->id }}" data-body="{{ "ambulance" }}"><i
+                                                       data-id="{{ $department->id }}" data-body="{{ "department" }}"><i
                                                             class="ti-trash"></i></a>
                                                 </td>
                                             </tr>
+
                                         @endforeach
                                     @endif
 
@@ -67,7 +66,6 @@
                     </div><!--  end card  -->
                 </div> <!-- end col-md-12 -->
             </div> <!-- end row -->
-
         </div>
     </div>
 
@@ -79,39 +77,34 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Edit View</h4>
                 </div>
-                <form action="{{ url('ambulances') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('departments') }}" method="post" enctype="multipart/form-data">
                     @csrf()
                     <div class="modal-body">
                         <div class="row" style="padding: 10px">
-
                             <input type="hidden" id="id" name="id">
 
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text"  name="name" class="form-control" required id="name" />
+
+                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7"
+                                        onchange="get_department(this)" name="hospital_id" id="hosp_id" required>
+                                    @if(!empty($hospitals))
+                                        @foreach($hospitals as $content)
+                                            <option value="{{ $content->id }}">{{ $content->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+
                             </div>
                             <div class="form-group">
-                                <label for="mobile">Mobile</label>
-                                <input type="text" name="mobile" class="form-control" required id="mobile"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="ambulance_no">Ambulance No</label>
-                                <input type="text" name="ambulance_no" class="form-control" required id="ambulance_no"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="area">Area</label>
-                                <input type="text" name="area" class="form-control" required id="area"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="district">District</label>
-                                <input type="text" name="district" class="form-control" required id="district"/>
+                                <label for="title">Name</label>
+                                <input type="text" name="name" id="name" class="form-control" required/>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file"  name="photo" class="form-control" multiple  id="photo"/>
+                                <input type="file" name="photo" class="form-control" multiple id="photo"/>
                             </div>
 
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <img src="" id="old_photo" width="100" height="50">
                             </div>
                         </div>
@@ -125,43 +118,37 @@
 
         </div>
     </div>
-    <div class="modal fade" id="create" role="dialog">
+    <div class="modal fade" id="Create" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Add New Ambulance Info</h4>
+                    <h4 class="modal-title">Add New Department</h4>
                 </div>
-                <form action="{{ url('ambulances') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('departments') }}" method="post" enctype="multipart/form-data">
                     @csrf()
                     <div class="modal-body">
                         <div class="row" style="padding: 10px">
                             <div class="form-group">
+
+                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7"
+                                        onchange="get_department(this)" name="hospital_id" id="hospital_id" required>
+                                    @if(!empty($hospitals))
+                                        @foreach($hospitals as $content)
+                                            <option value="{{ $content->id }}">{{ $content->name }}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text"  name="name" class="form-control" required id="name" />
-                            </div>
-                            <div class="form-group">
-                                <label for="mobile">Mobile</label>
-                                <input type="text" name="mobile" class="form-control" required id="mobile"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="ambulance_no">Ambulance No</label>
-                                <input type="text" name="ambulance_no" class="form-control" required id="ambulance_no"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="district">District</label>
-                                <input type="text" name="district" class="form-control" required id="district"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="area">Area</label>
-                                <input type="text" name="area" class="form-control" required id="area"/>
+                                <input type="text" name="name" id="name" class="form-control" required/>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file"  name="photo" class="form-control" multiple  id="photo"/>
+                                <input type="file" name="photo" class="form-control" multiple id="photo" required/>
                             </div>
-
                         </div>
                     </div>
 
@@ -173,15 +160,11 @@
 
         </div>
     </div>
+
 @endsection
 
 @section('script')
-
     <script src="{{asset('Admin/paper_dashboard/assets/js/datatable_search_pagination.js') }}"></script>
-
-    {{--<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">datatable_search_pagination.js</script>--}}
-
-
 @endsection
 
 

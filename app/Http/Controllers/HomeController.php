@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin\Ambulance;
+use App\Admin\Doctor;
+use App\Admin\Donor;
+use App\Admin\Hospital;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $hospitals = Hospital::all()->count();
+        $ambulances = Ambulance::all()->count();
+        $donors = Donor::all()->count();
+        $doctors = Doctor::all()->count();
+        return view('home', compact('hospitals','ambulances','donors','doctors'));
     }
 }

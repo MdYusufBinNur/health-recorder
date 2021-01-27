@@ -104,90 +104,99 @@ function verified(id, value) {
 
 function loadData(url, response) {
     switch (url) {
-        case 'fee' :
-            loadFee(response);
-            break;
-        case 'skill' :
-            loadSkill(response);
-            break;
-        case 'categorie' :
-            loadCategory(response);
-            break;
-        case 'employee':
-            loadEmployee(response)
-            break;
-        case 'subcategorie':
-            loadSubCategory(response)
-            break;
-        case 'product':
-            loadProduct(response)
-            break;
-        case 'gig':
-            loadGigs(response)
-            break;
-        case 'countrie':
-            loadCountry(response)
-            break;
-        case 'notice':
-            loadNotice(response)
-            break;
-        case 'service':
-            loadService(response)
-            break;
-        case 'design':
-            loadDesign(response)
-            break;
-        case 'trust':
-            loadTrust(response)
-            break;
-        case 'work':
-            loadWorks(response)
-            break;
         case 'slider':
             loadSlider(response)
             break;
-        case 'job':
-            loadJobs(response)
+        case 'hospital' :
+            loadHospital (response)
             break;
-        case 'job_image':
-            loadJobImage(response)
-            //console.log(response)
+        case 'doctor' :
+            loadDoctor(response)
             break;
-        case 'productcategorie' :
-            loadProductCategory(response);
+        case 'ambulance' :
+            loadAmbulance (response)
             break;
-        case 'content' :
-            loadContent(response);
-            break;
-        case 'content_item' :
-            loadContentItem(response);
-            break;
-        case 'coupon' :
-            loadCoupon(response);
-            break;
+        case 'donor' :
+            loadDonor (response)
+            break
+        case 'department' :
+            loadDepartment (response)
+            break
     }
 
 }
 
-function loadJobImage(response) {
-    $('#append_id').append("<input type='hidden' name='id' value='"+response.id+"'>");
-    $('#append_image').append("<img src='"+response.image+"' width='50' height='auto'/>");
-    $('#append_bg_image').append("<img src='"+response.bg_image+"' width='50' height='auto'/>");
+function loadHospital (response) {
+    $('#id').val(response.id);
+    $('#name').val(response.name);
+    $('#details').val(response.details);
+    $('#latitude').val(response.latitude);
+    $('#longitude').val(response.longitude);
+    $('#contact').val(response.contact);
+    $('#address').val(response.address);
+    $('#old_photo').attr('src', response.image);
+}
+function loadDoctor (response) {
+    $('#id').val(response.id);
+    $('#name').val(response.name);
+    $('#designation').val(response.designation);
+    $('#hosp_id').append("<option  value=" + response.hospital.id + "  selected> " + response.hospital.name + " </option>")
+    $('#dept_id').append("<option  value=" + response.department.id + "  > " + response.department.name + " </option>")
+    $('#old_photo').attr('src', response.image);
+}
+function loadAmbulance (response) {
+    $('#id').val(response.id);
+    $('#name').val(response.name);
+    $('#ambulance_no').val(response.ambulance_no);
+    $('#mobile').val(response.mobile);
+    $('#district').val(response.district);
+    $('#area').val(response.area);
+    $('#old_photo').attr('src', response.image);
+}
+function loadDonor (response) {
+    $('#id').val(response.id);
+    $('#name').val(response.name);
+    $('#blood_group').append("<option  value=" + response.blood_group + "  selected> " + response.blood_group + " </option>")
+    $('#mobile').val(response.mobile);
+    $('#district').val(response.district);
+    $('#gender').append("<option  value=" + response.gender + "  selected> " + response.gender + " </option>")
+    $('#area').val(response.area);
+}
+function loadDepartment (response) {
+    $('#id').val(response.id);
+    $('#name').val(response.name);
+    $('#hosp_id').append("<option  value=" + response.hospital.id + "  selected> " + response.hospital.name + " </option>")
+    $('#old_photo').attr('src', response.image);
+}
 
+function get_department(id) {
+    let hospital_id = id.value;
+    $(".generate_department").find('option').remove().end();
+    $(".generate_department").find('option>selected').remove().end();
+    $(".sub_class ul.inner").empty();
+
+    $.ajax(
+        {
+            url: '/get_departments/'+hospital_id,
+            method: 'get',
+            // data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+            success: function (result) {
+                $.each(result, function(i, resp)
+                {
+                    let value = resp.id;
+                    let dept_name = resp.name;
+                    $(".generate_department").append("<option value="+ value +" > "+dept_name+" </option>");
+                });
+            },
+            error: function(response)
+            {
+                console.log(response)
+            }
+        }
+    )
 }
-function loadTrust(response) {
-    $('#id').val(response.id);
-    $('#title').val(response.title);
-    $('#number').val(response.number);
-    $('#old_photo').attr('src', response.image);
-}
-function loadWorks(response) {
-    $('#id').val(response.id);
-    $('#title').val(response.title);
-    $('#color').val(response.color);
-    $('#sub_title').val(response.sub_title);
-    $('#old_photo').attr('src', response.image);
-}
+
+
 function loadSlider(response) {
     $('#id').val(response.id);
     $('#headline').val(response.headline);
@@ -201,118 +210,29 @@ function loadSlider(response) {
         );
     });
 }
-function loadJobs(response) {
-    $('#id').val(response.id);
-    $('#title').val(response.title);
-    $('#sub_title').val(response.sub_title);
-    $('#icon').val(response.icon);
-}
-function loadCoupon(response) {
-    $('#id').val(response.id);
-    $('#coupon_code').val(response.coupon_code);
-    $('#coupon_description').val(response.coupon_description);
-    $('#valid_till').val(response.valid_till);
-    $('#percent').val(response.percent);
-}
-function loadDesign(response) {
-    $('#id').val(response.id);
-    $('#title').val(response.title);
-    $('#sub_title').val(response.sub_title);
-    $('#old_photo').attr('src', response.image);
-}
-function loadService(response) {
-    $('#id').val(response.id);
-    $('#title').val(response.title);
-    $('#old_photo').attr('src', response.image);
-}
 function tinyMCE_init() {
     tinymce.init({
         selector: 'textarea',
         height: 200,
     });
 }
-
 function modalHide() {
     $('#Modal').modal('hide')
 }
-
 function loadCountry(response) {
 
     $('#country_id').val(response.id);
     $('#country_name').val(response.country_name);
 }
-
 function loadSkill(response) {
     $('#skill_id').val(response.id);
     $('#skill_name').val(response.skill_name);
     $('#skill_detail').val(response.skill_detail);
 }
-
 function loadNotice(response) {
     $('#id').val(response.id);
     $('#title').val(response.title);
 }
-
-function loadFee(response) {
-    $('#id').val(response.id);
-    $('#seller_fee').val(response.seller_fee);
-    $('#buyer_fee').val(response.buyer_fee);
-}
-
-function loadCategory(response) {
-    $('#category_id').val(response.id);
-    $('#category_name').val(response.category_name);
-    $('#category_details').val(response.category_details);
-}
-
-function loadProductCategory(response) {
-    $('#category_id').val(response.id);
-    $('#category_name').val(response.category_name);
-    $('#category_details').val(response.category_details);
-}
-
-function loadContent(response) {
-    $('#id').val(response.id);
-    $('#content_name').val(response.content_name);
-}
-
-function loadContentItem(response) {
-    //console.log(response)
-    $('#id').val(response.id);
-    $('#footer_content_id').append("<option  value=" + response.content.id + "  selected> " + response.content.content_name + " </option>")
-    $('#title').val(response.title);
-    $('#link').val(response.link);
-}
-
-function loadEmployee() {
-
-}
-
-function loadSubCategory(response) {
-    $('#all_category').append('<option value="' + response.category_id + '">dada</option>');
-}
-
-function loadProduct(response) {
-    $('#old_img').html("");
-    $('#product_id').val(response.id)
-    $('#category').append("<option  value=" + response.category.id + "  selected> " + response.category.category_name + " </option>")
-    $('#generate_sub_cat').append("<option  value=" + response.subcategory.id + "  > " + response.subcategory.sub_cat_name + " </option>")
-    $('#product_name').val(response.product_name);
-    $('#product_details').text(response.product_details);
-    $('#product_price').val(response.product_price);
-
-    $.each(JSON.parse(response.product_images), function (index, val) {
-        //console.log(value);
-        //$('#old_img').append("<img src='"+value+"' width=\"70\" height=\"auto\"/> <br> <button class='btn btn-xs  btn-danger'>DELETE</button> &nbsp;");
-        $('#old_img').append("<div class='col-md-3 mb-md-3' >\n" +
-            "<img src='" + val + "' alt=\"\" width=\"70\" height=\"auto\">\n" +
-            "<br> <a id='delete_image' onclick='delete_image(\"" + val + "\",\"" + response.id + "\")' class='btn btn-sm  btn-danger'>DELETE</a></div>");
-        //$('#old_logo').attr('src',value)
-
-        // $('form').append('<input type="hidden" name="document[]" value="' + value + '">')
-    });
-}
-
 function delete_image(name, id) {
     //alert(id);
 
@@ -349,82 +269,7 @@ function delete_image(name, id) {
     })
 }
 
-function loadGigs(response) {
-    $('#gig_id').val(response.id)
-    $('#old_img').html("");
-    $('#category').append("<option  value=" + response.category.id + "  selected> " + response.category.category_name + " </option>")
-    $('#generate_sub_cat').append("<option  value=" + response.subcategory.id + "  > " + response.subcategory.sub_cat_name + " </option>")
-    $('#gig_name').val(response.gig_name)
-    $('#gig_details').val(response.gig_details)
-    $('#price').val(response.price)
-    $.each(JSON.parse(response.gig_images), function (index, val) {
-        //console.log(value);
-        //$('#old_img').append("<img src='"+value+"' width=\"70\" height=\"auto\"/> <br> <button class='btn btn-xs  btn-danger'>DELETE</button> &nbsp;");
-        $('#old_img').append("<div class='col-md-3 mb-md-3' >\n" +
-            "<img src='" + val + "' alt=\"\" width=\"70\" height=\"auto\">\n" +
-            "<br> <a id='delete_image' onclick='delete_gig_image(\"" + val + "\",\"" + response.id + "\")' class='btn btn-sm  btn-danger'>DELETE</a></div>");
-        //$('#old_logo').attr('src',value)
 
-        // $('form').append('<input type="hidden" name="document[]" value="' + value + '">')
-    });
-}
 
-function delete_gig_image(name, id) {
-    //alert(id);
-
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        url: 'delete_selected_gig_image',
-        method: 'get',
-        data: {
-            data_id: id,
-            name: name
-        },
-        contentType: 'application/json; charset=utf-8',
-        dataType: "json",
-        /*  beforeSend: function (request) {
-              return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
-          },*/
-        success: function (object) {
-
-            //console.log(resp);
-            // let object = JSON.parse(resp);
-            $('#old_img').html("");
-            $.each(JSON.parse(object.gig_images), function (index, val) {
-                $('div#old_img').append("<div class='col-md-3 mb-md-3' >\n" +
-                    "<img src='" + val + "' alt=\"\" width=\"70\" height=\"auto\">\n" +
-                    "<br> <a id='delete_image' onclick='delete_gig_image(\"" + val + "\",\"" + object.id + "\")' class='btn btn-sm  btn-danger'>DELETE</a></div>");
-
-            });
-
-        },
-        error: function (resp) {
-            console.log(resp);
-        }
-    })
-}
-
-/*
-* $('#checky').click(function(){
-
-    if($(this).attr('checked') == false){
-         $('#postme').attr("disabled","disabled");
-    }
-    else {
-        $('#postme').removeAttr('disabled');
-    }
-});
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-<input type="checkbox" checked="checked" id="checky"><a href="#">I agree to keep my Username and Password confidential and uphold
-  the integrity of this pharmacy</a>
-<br>
-<input type="submit" id="postme" value="submit">
-*
-*
-* */
 
 

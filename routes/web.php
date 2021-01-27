@@ -16,12 +16,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/get_departments/{id}', 'Admin\DepartmentController@get_departments');
+
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::middleware(['checkRole:admin'])->group(function () {
         Route::resource('hospitals', 'HospitalController');
         Route::resource('doctors', 'DoctorController');
         Route::resource('ambulances', 'AmbulanceController');
         Route::resource('donors', 'DonorController');
+        Route::resource('departments', 'DepartmentController');
     });
     Route::middleware(['checkRole:doctor'])->group(function () {
         Route::resource('appointments', 'HospitalController');

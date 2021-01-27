@@ -16,8 +16,12 @@
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Total Hospitals</p>
-                                        105GB
+                                        <p>
+                                            <a href="{{ url('/hospitals') }}" class="text-decoration-none font-weight-bold text-black-50 small">Hospitals</a>
+                                        </p>
+                                        @if(!empty($hospitals))
+                                            {{ $hospitals }}
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -42,8 +46,12 @@
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Total Doctors</p>
-                                        $1,345
+                                        <p>
+                                            <a href="{{ url('/doctors') }}" class="text-decoration-none font-weight-bold text-black-50 small">Doctors</a>
+                                        </p>
+                                        @if(!empty($doctors))
+                                            {{ $doctors }}
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -67,8 +75,12 @@
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Donors</p>
-                                        23
+                                        <p>
+                                            <a href="{{ url('/donors') }}" class="text-decoration-none font-weight-bold text-black-50 small">Donors</a>
+                                        </p>
+                                        @if(!empty($donors))
+                                            {{ $donors }}
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -92,8 +104,12 @@
                                 </div>
                                 <div class="col-xs-7">
                                     <div class="numbers">
-                                        <p>Ambulance</p>
-                                        1,345
+                                        <p>
+                                            <a href="{{ url('/ambulances') }}" class="text-decoration-none font-weight-bold text-black-50 small">Ambulance</a>
+                                        </p>
+                                        @if(!empty($ambulances))
+                                            {{ $ambulances }}
+                                        @endif
                                     </div>
                                 </div>
                             </div>

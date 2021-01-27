@@ -117,8 +117,8 @@
                                 <input type="file"  name="photo" class="form-control" multiple  id="photo"/>
                             </div>
 
-                            <div class="form-group" id="old_photo">
-
+                            <div class="form-group" >
+                                <img src="" id="old_photo" width="100" height="50">
                             </div>
                         </div>
                     </div>

@@ -3,9 +3,11 @@
 
 namespace App\Helper;
 
+use App\Admin\Ambulance;
 use App\Admin\Appointment;
 use App\Admin\Department;
 use App\Admin\Doctor;
+use App\Admin\Donor;
 use App\Admin\Hospital;
 use App\Admin\Schedule;
 use Illuminate\Database\Eloquent\Model;
@@ -43,108 +45,148 @@ class Common
         }
         return $imageUrl;
     }
+
     public static function _deleteFiles($file)
     {
         File::delete($file);
     }
+
     public static function _response($data, $error, $message)
     {
         if ($error) {
-            $response['error'] = true;
-            $response['data'] = null;
+            return 'error';
         } else {
-            $response['error'] = false;
-            $response['data'] = $data;
+            return 'success';
         }
-        $response['message'] = $message;
-        return response()->json($response);
+//        }
+//        if ($error) {
+//            $response['error'] = true;
+//            $response['data'] = null;
+//        } else {
+//            $response['error'] = false;
+//            $response['data'] = $data;
+//        }
+//        $response['message'] = $message;
+//        return response()->json($response);
     }
+
     public static function _insert(Request $request, $model)
     {
         if ($request->hasFile('photo')) {
             $request['image'] = self::_saveFiles($request->photo, $model);
             $request = collect($request);
-            $request->forget('photo');
+            //$request->forget('photo');
         }
-        if ($request->get('_token')) {
-            $request->forget('_token');
+//        if ($request->get('_token')) {
+//            $request->forget('_token');
+//        }
+        if ($request->get('photo')) {
+            $requestedData = $request->except('_token', 'photo')->toArray();
+        } else {
+            $requestedData = $request->except('_token', 'photo');
         }
-        if (!empty($request['id']))
-        {
+        if (!empty($request['id'])) {
             switch ($model) {
                 case 'doctor':
                     if ($data = Doctor::find($request['id'])) {
-                        if ($request['image']){
+                        if ($request['image']) {
                             self::_deleteFiles($data->image);
                         }
-                        $data->update($request->all());
+                        $data->update($requestedData);
                         return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
                 case 'hospital':
                     if ($data = Hospital::find($request['id'])) {
-                        if ($request['image']){
+                        if ($request['image']) {
                             self::_deleteFiles($data->image);
                         }
-                        $data->update($request->all());
+                        $data->update($requestedData);
                         return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
                 case 'department':
                     if ($data = Department::find($request['id'])) {
-                        if ($request['image']){
+                        if ($request['image']) {
                             self::_deleteFiles($data->image);
                         }
-                        $data->update($request->all());
+                        $data->update($requestedData);
                         return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
                 case 'appointment':
                     if ($data = Appointment::find($request['id'])) {
-                        if ($request['image']){
+                        if ($request['image']) {
                             self::_deleteFiles($data->image);
                         }
-                        $data->update($request->all());
+                        $data->update($requestedData);
                         return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
                 case 'schedule':
                     if ($data = Schedule::find($request['id'])) {
-                        if ($request['image']){
+                        if ($request['image']) {
                             self::_deleteFiles($data->image);
                         }
-                        $data->update($request->all());
+                        $data->update($requestedData);
+                        return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
+                    }
+                    return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
+                case 'ambulance':
+                    if ($data = Ambulance::find($request['id'])) {
+                        if ($request['image']) {
+                            self::_deleteFiles($data->image);
+                        }
+                        $data->update($requestedData);
+                        return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
+                    }
+                    return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
+                case 'donor':
+                    if ($data = Donor::find($request['id'])) {
+                        if ($request['image']) {
+                            self::_deleteFiles($data->image);
+                        }
+                        $data->update($requestedData);
                         return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
                 default:
                     break;
             }
-        }
-        else{
+        } else {
             switch ($model) {
                 case 'doctor':
-                    if (Doctor::insert($request->all())) {
+                    if (Doctor::insert($requestedData)) {
                         return self::_response('', false, self::MESSAGE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_ERROR);
                 case 'hospital':
-                    if (Hospital::insert($request->all())) {
+                    if (Hospital::insert($requestedData)) {
                         return self::_response('', false, self::MESSAGE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_ERROR);
                 case 'department':
-                    if (Department::insert($request->all())) {
+                    if (Department::insert($requestedData)) {
                         return self::_response('', false, self::MESSAGE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_ERROR);
                 case 'appointment':
-                    if (Appointment::insert($request->all())) {
+                    if (Appointment::insert($requestedData)) {
                         return self::_response('', false, self::MESSAGE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_ERROR);
                 case 'schedule':
-                    if (Schedule::insert($request->all())) {
+                    if (Schedule::insert($requestedData)) {
+                        return self::_response('', false, self::MESSAGE_SUCCESS);
+                    }
+                    return self::_response('', true, self::MESSAGE_ERROR);
+                case 'ambulance':
+                    if (Ambulance::insert($requestedData)) {
+                        return self::_response('', false, self::MESSAGE_SUCCESS);
+                    }
+                    return self::_response('', true, self::MESSAGE_ERROR);
+                case 'donor':
+                    if (Donor::insert($requestedData)) {
                         return self::_response('', false, self::MESSAGE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_ERROR);
@@ -154,6 +196,7 @@ class Common
         }
 
     }
+
     public static function _delete($data, $model)
     {
         switch ($model) {
@@ -187,16 +230,34 @@ class Common
                     return self::_response('', false, self::MESSAGE_DELETE_SUCCESS);
                 }
                 return self::_response('', true, self::MESSAGE_DELETE_ERROR);
+            case 'ambulance':
+                if (Ambulance::find($data->id)) {
+                    Ambulance::find($data->id)->delete();
+                    return self::_response('', false, self::MESSAGE_DELETE_SUCCESS);
+                }
+                return self::_response('', true, self::MESSAGE_DELETE_ERROR);
+            case 'donor':
+                if (Donor::find($data->id)) {
+                    Donor::find($data->id)->delete();
+                    return self::_response('', false, self::MESSAGE_DELETE_SUCCESS);
+                }
+                return self::_response('', true, self::MESSAGE_DELETE_ERROR);
             default:
                 break;
         }
     }
-    public static function _notify ($data) {
-        return $data;
-        if (!$data->error){
-            return back()->with('success',$data->message);
-        }else{
-            return back()->with('error',$data->message);
+
+    public static function _notify($data)
+    {
+        if ($data == 'success') {
+            return back()->with(array(
+                'message' => "Successfully Done",
+                'alert-type' => $data
+            ));
         }
+        return back()->with(array(
+            'message' => "Failed !!!",
+            'alert-type' => $data
+        ));
     }
 }

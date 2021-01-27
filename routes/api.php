@@ -34,6 +34,8 @@ Route::post('department','Admin\DepartmentController@destroy');
 Route::post('schedule','Admin\ScheduleController@destroy');
 Route::post('appointment','Admin\AppointmentController@destroy');
 Route::get('doctors','Admin\ApiController@getDoctors');
+Route::get('donors','Admin\ApiController@getDonors');
+Route::get('ambulances','Admin\ApiController@getAmbulances');
 Route::get('doctor/{id}','Admin\ApiController@getDoctorWiseHospital');
 Route::get('hospitals','Admin\ApiController@getHospitals');
 Route::get('hospital/{id}','Admin\ApiController@getHospitalDetails');

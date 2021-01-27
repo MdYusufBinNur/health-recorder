@@ -73,6 +73,23 @@
                     </div>
                 </li>
                 <li>
+                    <a data-toggle="collapse" href="#department">
+                        <p>Department
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="department">
+                        <ul class="nav">
+                            <li>
+                                <a href="{{ url('/departments') }}">
+                                    <span class="sidebar-mini"><i class="ti-layers"></i></span>
+                                    <span class="sidebar-normal">Department</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
                     <a data-toggle="collapse" href="#doctors">
                         <p>Doctors
                             <b class="caret"></b>
