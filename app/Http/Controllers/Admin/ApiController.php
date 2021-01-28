@@ -8,6 +8,7 @@ use App\Admin\Department;
 use App\Admin\Doctor;
 use App\Admin\Donor;
 use App\Admin\Hospital;
+use App\Admin\Slider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -42,5 +43,10 @@ class ApiController extends Controller
     public function getDonors()
     {
         return response()->json(Donor::all());
+    }
+
+    public function getSliders()
+    {
+        return response()->json(Slider::all());
     }
 }

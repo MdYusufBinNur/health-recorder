@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
         Route::resource('ambulances', 'AmbulanceController');
         Route::resource('donors', 'DonorController');
         Route::resource('departments', 'DepartmentController');
+        Route::resource('sliders', 'SliderController');
     });
     Route::middleware(['checkRole:doctor'])->group(function () {
         Route::resource('appointments', 'HomeController@index');

@@ -158,10 +158,11 @@ function loadData(url, response) {
             break
         case 'department' :
             loadDepartment (response)
-            break
+            break;
     }
 
 }
+
 
 function loadHospital (response) {
     $('#id').val(response.id);
@@ -233,19 +234,10 @@ function get_department(id) {
     )
 }
 
-
-function loadSlider(response) {
+function loadSlider (response) {
     $('#id').val(response.id);
-    $('#headline').val(response.headline);
-    $('#sub_title').val(response.sub_title);
-    $('#color').val(response.color);
-    $('#popular').val(response.popular);
-
-    $.each(JSON.parse(response.image), function (index, val) {
-        $('#old_photo').append("\n" +
-            "<img src='" + val + "' class='col-sm-3' alt=\"\" width=\"70\" height=\"70\">\n"
-        );
-    });
+    $('#title').val(response.title);
+    $('#old_photo').attr('src', response.image);
 }
 function tinyMCE_init() {
     tinymce.init({

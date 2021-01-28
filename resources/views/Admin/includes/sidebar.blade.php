@@ -140,6 +140,23 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a data-toggle="collapse" href="#sliders">
+                        <p>Slider
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="sliders">
+                        <ul class="nav">
+                            <li>
+                                <a href="{{ url('/sliders') }}">
+                                    <span class="sidebar-mini"><i class="ti-drupal"></i></span>
+                                    <span class="sidebar-normal">Slider</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             @endcan
             @can('doctor')
 

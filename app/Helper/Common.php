@@ -10,6 +10,7 @@ use App\Admin\Doctor;
 use App\Admin\Donor;
 use App\Admin\Hospital;
 use App\Admin\Schedule;
+use App\Admin\Slider;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -156,6 +157,15 @@ class Common
                         return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
+                case 'slider':
+                    if ($data = Slider::find($request['id'])) {
+                        if ($request['image']) {
+                            self::_deleteFiles($data->image);
+                        }
+                        $data->update($requestedData);
+                        return self::_response('', false, self::MESSAGE_UPDATE_SUCCESS);
+                    }
+                    return self::_response('', true, self::MESSAGE_UPDATE_ERROR);
                 default:
                     break;
             }
@@ -234,6 +244,11 @@ class Common
                         return self::_response('', false, self::MESSAGE_SUCCESS);
                     }
                     return self::_response('', true, self::MESSAGE_ERROR);
+                case 'slider':
+                    if (Slider::insert($requestedData)) {
+                        return self::_response('', false, self::MESSAGE_SUCCESS);
+                    }
+                    return self::_response('', true, self::MESSAGE_ERROR);
                 default:
                     break;
             }
@@ -283,6 +298,12 @@ class Common
             case 'donor':
                 if (Donor::find($data->id)) {
                     Donor::find($data->id)->delete();
+                    return self::_response('', false, self::MESSAGE_DELETE_SUCCESS);
+                }
+                return self::_response('', true, self::MESSAGE_DELETE_ERROR);
+            case 'slider':
+                if (Slider::find($data->id)) {
+                    Slider::find($data->id)->delete();
                     return self::_response('', false, self::MESSAGE_DELETE_SUCCESS);
                 }
                 return self::_response('', true, self::MESSAGE_DELETE_ERROR);

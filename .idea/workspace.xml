@@ -22,17 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Appointment and doctor crud done">
-      <change beforePath="$PROJECT_DIR$/.idea/health-recorder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/health-recorder.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2020_12_15_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2020_12_15_PM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Appointment done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Appointment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppointmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_08_092057_create_hospitals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_092057_create_hospitals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helper/Common.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helper/Common.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Admin/paper_dashboard/assets/js/datatable_search_pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/paper_dashboard/assets/js/datatable_search_pagination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/CMS/appointments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/CMS/appointments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/includes/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +175,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin/CMS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -190,13 +186,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\health-recorder\resources\views\Admin\CMS" />
       <recent name="C:\xampp\htdocs\health-recorder" />
       <recent name="C:\laragon\www\health-recorder\resources\views\Admin\CMS" />
       <recent name="C:\laragon\www\health-recorder\resources\views\Admin" />
       <recent name="C:\laragon\www\health-recorder\resources\views" />
-      <recent name="C:\laragon\www\health-recorder\resources\views\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\health-recorder\app\Http\Controllers\Admin" />
       <recent name="C:\laragon\www\health-recorder\app\Http\Controllers\Admin" />
       <recent name="C:\laragon\www\health-recorder\app\Admin" />
     </key>
@@ -228,7 +225,7 @@
       <workItem from="1611477902040" duration="1049000" />
       <workItem from="1611722579315" duration="26140000" />
       <workItem from="1611835297997" duration="7022000" />
-      <workItem from="1611849559586" duration="4254000" />
+      <workItem from="1611849559586" duration="7559000" />
     </task>
     <task id="LOCAL-00001" summary="Helper Model Created For Insert Data">
       <created>1604838156371</created>
@@ -279,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611842683886</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Appointment done">
+      <created>1611857749238</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1611857749238</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +308,8 @@
     <MESSAGE value="Hospital View" />
     <MESSAGE value="CRUD DONE" />
     <MESSAGE value="Appointment and doctor crud done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Appointment and doctor crud done" />
+    <MESSAGE value="Appointment done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Appointment done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="770" y="399" key="#Composer" timestamp="1603949510493">
@@ -315,10 +320,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611839160139" />
+    <state x="216" y="0" key="CommitChangelistDialog2" timestamp="1611860272269">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="216" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1611860272269" />
     <state x="459" y="277" key="ComposerInitDialogKey" timestamp="1604367148274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="459" y="277" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1604367148274" />
+    <state x="129" y="55" key="DiffContextDialog" timestamp="1611857729399">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="129" y="55" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1611857729399" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604831539163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -347,29 +360,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611728372810" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1611842685526">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="393" y="177" key="Vcs.Push.Dialog.v2" timestamp="1611857751810">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1611857751810" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611842685526" />
     <state x="564" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1611742074392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1611742074392" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1611857271419">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1611860676134">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1611857271419" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1611860676134" />
     <state x="486" y="70" width="945" height="969" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611842585906" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/Admin/includes/sidebar.blade.php</url>
-          <line>91</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
