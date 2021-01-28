@@ -114,6 +114,14 @@
                                 <input type="text"  name="designation" id="designation"  class="form-control"/>
                             </div>
                             <div class="form-group">
+                                <label for="day">Day</label>
+                                <input type="text"  name="day" id="day"  class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile</label>
+                                <input type="number"  name="mobile" id="mobile" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
                                 <label for="photo">Image</label>
                                 <input type="file"  name="photo" class="form-control" multiple  id="photo"/>
                             </div>
@@ -167,12 +175,26 @@
                                 <input type="text"  name="name" id="name" class="form-control" required/>
                             </div>
                             <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email"  name="email" id="email" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile</label>
+                                <input type="number"  name="mobile" id="mobile" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="day">Day</label>
+                                <input type="text"  name="day" id="day" placeholder="monday-friday(5.00 - 7.00 AM)" class="form-control" required/>
+                            </div>
+                            <input type="hidden" name="password" value="password">
+                            <input type="hidden" name="role" value="doctor">
+                            <div class="form-group">
                                 <label for="designation">Designation</label>
-                                <input type="text"  name="designation" id="designation"  class="form-control"/>
+                                <input type="text"  name="designation" id="designation"  class="form-control" required/>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file"  name="photo" class="form-control" multiple  id="photo"/>
+                                <input type="file"  name="photo" class="form-control"  id="photo" required/>
                             </div>
 
                             <div class="form-group" >

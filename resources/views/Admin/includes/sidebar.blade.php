@@ -142,72 +142,7 @@
                 </li>
             @endcan
             @can('doctor')
-                <li>
-                    <a data-toggle="collapse" href="#cms">
-                        <i class="ti-settings"></i>
-                        <p>Appointments
-                            <b class="caret"></b>
-                        </p>
-                    </a>
-                    <div class="collapse" id="cms">
-                        <ul class="nav">
-                            <li>
-                                <a href="{{ url('notices') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Notice</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('sliders') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Slider</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('services') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Service</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('trusts') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Trusted</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('works') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Work Your Way</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('designs') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Freelance Design</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('jobs') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Looking For Job</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('contents') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Footer Content</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('content_items') }}">
-                                    <span class="sidebar-mini"><i class="ti-list"></i></span>
-                                    <span class="sidebar-normal">Footer Content Items</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+
             @endcan
         </ul>
     </div>

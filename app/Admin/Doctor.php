@@ -2,6 +2,7 @@
 
 namespace App\Admin;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Doctor extends Model
@@ -21,6 +22,11 @@ class Doctor extends Model
     public function appointment()
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
 

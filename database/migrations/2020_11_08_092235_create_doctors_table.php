@@ -17,6 +17,7 @@ class CreateDoctorsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('department_id');
             $table->unsignedBigInteger('hospital_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('designation');
             $table->string('day')->nullable();
@@ -31,6 +32,11 @@ class CreateDoctorsTable extends Migration
 
             $table->foreign('hospital_id')
                 ->on('hospitals')
+                ->references('id')
+                ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                ->on('users')
                 ->references('id')
                 ->onDelete('cascade');
         });

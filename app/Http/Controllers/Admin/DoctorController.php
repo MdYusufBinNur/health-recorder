@@ -49,6 +49,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+//        return Common::_insert($request,'doctor');
         return Common::_notify(Common::_insert($request,'doctor'));
     }
 

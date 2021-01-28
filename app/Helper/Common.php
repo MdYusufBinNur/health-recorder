@@ -10,10 +10,15 @@ use App\Admin\Doctor;
 use App\Admin\Donor;
 use App\Admin\Hospital;
 use App\Admin\Schedule;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use Intervention\Image\Facades\Image;
+use PhpParser\Comment\Doc;
 
 class Common
 {
@@ -23,6 +28,7 @@ class Common
     const MESSAGE_UPDATE_ERROR = "Failed to update !!";
     const MESSAGE_DELETE_SUCCESS = "Data has been deleted successfully";
     const MESSAGE_DELETE_ERROR = "Failed to delete !! ";
+    const MESSAGE_VALIDATE = "Validation Error !! ";
 
     public static function _saveFiles($image, string $directory)
     {
@@ -156,9 +162,47 @@ class Common
         } else {
             switch ($model) {
                 case 'doctor':
-                    if (Doctor::insert($requestedData)) {
-                        return self::_response('', false, self::MESSAGE_SUCCESS);
+//                    $validateData['name'] = $requestedData['name'];
+//                    $validateData['email'] = $requestedData['email'];
+//                    try {
+//                        if (Common::validator($validateData)->validate()->fails()) {
+//                            dd('hi');
+//                            return self::_response('', true, self::MESSAGE_VALIDATE);
+//                        }
+//                    } catch (ValidationException $e) {
+//                        dd($e);
+//                        return self::_response('', true, $e);
+//                    }
+                    $name = $requestedData['name'];
+                    $email = $requestedData['email'];
+
+                    $role = $requestedData['role'];
+                    $mobile = $requestedData['mobile'];
+                    $password = Hash::make($requestedData['password']);
+                    $checkEmail = User::where('email', $email)->first();
+                    if ($checkEmail)
+                    {
+                        return self::_response('', true, self::MESSAGE_VALIDATE);
                     }
+                    $newUser = new User();
+                    $newUser->name = $name;
+                    $newUser->email = $email;
+                    $newUser->password = $password;
+                    $newUser->mobile = $mobile;
+                    $newUser->role = $role;
+                   if ($newUser->save()){
+                       $newDoctor = new Doctor();
+                       $newDoctor->name = $requestedData['name'];
+                       $newDoctor->department_id = $requestedData['department_id'];
+                       $newDoctor->hospital_id = $requestedData['hospital_id'];
+                       $newDoctor->user_id = $newUser->id;
+                       $newDoctor->designation = $requestedData['designation'];
+                       $newDoctor->image = $requestedData['image'];
+                       $newDoctor->day = $requestedData['day'];
+                       if ($newDoctor->save()) {
+                           return self::_response('', false, self::MESSAGE_SUCCESS);
+                       }
+                   }
                     return self::_response('', true, self::MESSAGE_ERROR);
                 case 'hospital':
                     if (Hospital::insert($requestedData)) {
@@ -260,4 +304,12 @@ class Common
             'alert-type' => $data
         ));
     }
+    public static function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        ]);
+    }
+
 }
