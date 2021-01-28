@@ -35,11 +35,11 @@ class AppointmentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return JsonResponse
+     * @return string
      */
     public function store(Request $request)
     {
-       return Common::_insert($request, 'appointment');
+        return Common::_insert($request, 'appointment');
     }
 
     /**
@@ -80,10 +80,29 @@ class AppointmentController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Appointment $appointment
-     * @return JsonResponse
+     * @return string
      */
     public function destroy(Appointment $appointment)
     {
         return Common::_delete($appointment, 'appointment');
+    }
+
+    public function updateAppointmentInfo($id)
+    {
+        $appointment = Appointment::find($id);
+        if ($appointment)
+        {
+            if ($appointment->update(['status' => 'checked']))
+            {
+                return back()->with(array(
+                    'message' => "Appointment Status Updated",
+                    'alert-type' => 'success'
+                ));
+            }
+        }
+        return back()->with(array(
+            'message' => "Failed !!!",
+            'alert-type' => 'error'
+        ));
     }
 }

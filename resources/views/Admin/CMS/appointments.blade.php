@@ -39,16 +39,30 @@
                                         @foreach($appointments as $i => $appointment)
                                             <tr>
                                                 <td class="text-center">{!! $appointment->id !!}</td>
-                                                <td class="text-center">{!! $appointment->date !!}</td>
-                                                <td class="text-center">{!! $appointment->status !!}</td>
-                                                <td class="text-center">{!! $appointment->name !!}</td>
+                                                <td class="text-center">
+                                                    @if($appointment->status === 'pending')
+                                                        <button class="btn btn-danger btn-fill btn-sm btn-block">
+                                                            {!! $appointment->status !!}
+                                                        </button>
+                                                        @else
+                                                        <button class="btn btn-success btn-fill btn-sm btn-block">
+                                                            {!! $appointment->status !!}
+                                                        </button>
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">{!! $appointment->patient_name !!}</td>
                                                 <td class="text-center">{!! $appointment->patient_age !!}</td>
+                                                <td class="text-center">{!! $appointment->date !!}</td>
                                                 <td class="text-center">{!! $appointment->hospital->name !!}</td>
                                                 <td class="text-center">
-                                                    <a href=""
-                                                       class="btn btn-simple btn-danger btn-icon del_brand remove"
-                                                       data-id="{{ $department->id }}" data-body="{{ "department" }}"><i
-                                                            class="ti-trash"></i></a>
+                                                    @if($appointment->status === 'pending')
+                                                        <a href="#?"
+                                                           class="btn btn-simple btn-info btn-icon change_state"
+                                                           data-id="{{ $appointment->id }}" data-body="appointment"><i
+                                                                class="ti-check-box"></i>
+                                                        </a>
+                                                    @endif
+
                                                 </td>
                                             </tr>
 

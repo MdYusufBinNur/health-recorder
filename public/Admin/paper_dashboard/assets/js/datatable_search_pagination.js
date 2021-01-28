@@ -68,6 +68,43 @@ $().ready(function () {
 
         e.preventDefault();
     });
+    table.on('click', '.change_state', function (e) {
+        //alert('HH')
+        let id = $(this).data('id');
+        let url = $(this).data('body');
+        //alert(url)
+        swal({
+                title: "Sue to change status ?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Confirm",
+                cancelButtonText: "No, cancel please!",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: '/updateAppointmentStatus/' + id,
+                        method: 'get',
+                        data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+                        success: function (data) {
+                            swal("success", data.message , "success");
+                            window.location.reload()
+                        },
+                        error: function (response) {
+                            swal("error", "Failed to delete", "error");
+                        }
+                    })
+                    // window.location.href = url+'s/'+id;
+                } else {
+                    swal("Cancelled", "Your imaginary file is safe :)", "error");
+                }
+            });
+
+        e.preventDefault();
+    });
 
 });
 

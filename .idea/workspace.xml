@@ -22,7 +22,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Appointment and doctor crud done" />
+    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Appointment and doctor crud done">
+      <change beforePath="$PROJECT_DIR$/.idea/health-recorder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/health-recorder.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2020_12_15_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2020_12_15_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.rnd" beforeDir="false" afterPath="$PROJECT_DIR$/.rnd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AppointmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_08_092057_create_hospitals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_092057_create_hospitals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Admin/paper_dashboard/assets/js/datatable_search_pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/paper_dashboard/assets/js/datatable_search_pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/CMS/appointments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/CMS/appointments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,7 +179,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin/CMS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -177,16 +189,16 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\health-recorder\app\Http\Controllers\Admin" />
-      <recent name="C:\laragon\www\health-recorder\app\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\health-recorder" />
       <recent name="C:\laragon\www\health-recorder\resources\views\Admin\CMS" />
       <recent name="C:\laragon\www\health-recorder\resources\views\Admin" />
       <recent name="C:\laragon\www\health-recorder\resources\views" />
       <recent name="C:\laragon\www\health-recorder\resources\views\auth" />
-      <recent name="C:\laragon\www\health-recorder\app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\health-recorder\app\Http\Controllers\Admin" />
+      <recent name="C:\laragon\www\health-recorder\app\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -195,7 +207,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -216,6 +228,7 @@
       <workItem from="1611477902040" duration="1049000" />
       <workItem from="1611722579315" duration="26140000" />
       <workItem from="1611835297997" duration="7022000" />
+      <workItem from="1611849559586" duration="4254000" />
     </task>
     <task id="LOCAL-00001" summary="Helper Model Created For Insert Data">
       <created>1604838156371</created>
@@ -270,19 +283,20 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial For Office" />
@@ -341,10 +355,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1611742074392" />
-    <state x="486" y="70" width="945" height="969" key="search.everywhere.popup" timestamp="1611842585906">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1611857271419">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1604367881337" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1611857271419" />
     <state x="486" y="70" width="945" height="969" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611842585906" />
   </component>
   <component name="XDebuggerManager">

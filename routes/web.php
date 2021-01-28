@@ -27,7 +27,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
         Route::resource('departments', 'DepartmentController');
     });
     Route::middleware(['checkRole:doctor'])->group(function () {
-        Route::resource('appointments', 'HospitalController');
+        Route::resource('appointments', 'HomeController@index');
+        Route::get('/updateAppointmentStatus/{id}','AppointmentController@updateAppointmentInfo');
     });
 });
 

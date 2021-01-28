@@ -38,7 +38,7 @@ class HomeController extends Controller
                 return view('home', compact('hospitals', 'ambulances', 'donors', 'doctors'));
                 break;
             case 'doctor':
-                $appointments = Appointment::with('hospital')->where('doctor_id', auth()->user()->id)->get();
+                $appointments = Appointment::with('hospital')->where('doctor_id', auth()->user()->doctor->id)->get();
                 return view('Admin.CMS.appointments',compact('appointments'));
                 break;
         }

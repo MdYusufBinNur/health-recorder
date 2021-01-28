@@ -12,4 +12,9 @@ class Appointment extends Model
     {
         return $this->belongsTo(Doctor::class,'doctor_id');
     }
+
+    public function hospital()
+    {
+        return $this->belongsTo(Hospital::class,'hospital_id');
+    }
 }
