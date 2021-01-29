@@ -33,8 +33,6 @@
                                         <th class="text-center"> Hospital</th>
                                         <th class="text-center"> Address</th>
                                         <th class="text-center"> Image</th>
-                                        <th class="text-center"> Lat</th>
-                                        <th class="text-center"> Lang</th>
                                         <th class="text-center disabled-sorting">Actions</th>
                                     </tr>
                                     </thead>
@@ -46,10 +44,9 @@
                                                 <td class="text-center">{!! $hospital->name !!}</td>
                                                 <td class="text-center">{!! $hospital->address !!}</td>
                                                 <td class="text-center"><img src="{{ asset($hospital->image) }}" width="100" height="50"></td>
-                                                <td class="text-center">{!! $hospital->latitude !!}</td>
-                                                <td class="text-center">{!! $hospital->longitude !!}</td>
+
                                                 <td class="text-center">
-                                                    <a href="#" class="btn btn-simple btn-warning btn-icon edit"
+                                                    <a href="" class="btn btn-simple btn-warning btn-icon edit"
                                                        data-toggle="modal" data-body="{{ "hospital" }}"
                                                        data-id="{{ $hospital->id }}" data-target="#Modal"><i
                                                             class="ti-pencil-alt"></i></a>
@@ -105,13 +102,21 @@
                                 <input type="text" name="address" class="form-control" required id="address"/>
                             </div>
                             <div class="form-group">
-                                <label for="latitude">Latitude</label>
-                                <input type="text" name="latitude" class="form-control" required id="latitude"/>
+                                <label for="center">Lat/Long (center)</label>
+                                <input type="text" name="center" class="form-control" required id="center"/>
                             </div>
-                            <div class="form-group">
-                                <label for="longitude">Latitude</label>
-                                <input type="text" name="longitude" class="form-control" required id="longitude"/>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="latitude">Latitude</label>--}}
+{{--                                <input type="text" name="latitude" class="form-control" required id="latitude"/>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="longitude">Latitude</label>--}}
+{{--                                <input type="text" name="longitude" class="form-control" required id="longitude"/>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="iframe">Iframe</label>--}}
+{{--                                <textarea name="iframe" class="form-control" required id="iframe"></textarea>--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label for="photo">Image</label>
                                 <input type="file"  name="photo" class="form-control" multiple  id="photo"/>
@@ -160,13 +165,21 @@
                                 <input type="text" name="address" class="form-control" required id="address"/>
                             </div>
                             <div class="form-group">
-                                <label for="latitude">Latitude</label>
-                                <input type="text" name="latitude" class="form-control" required id="latitude"/>
+                                <label for="center">Lat/Long (center)</label>
+                                <input type="text" name="center" class="form-control" required id="center"/>
                             </div>
-                            <div class="form-group">
-                                <label for="longitude">Latitude</label>
-                                <input type="text" name="longitude" class="form-control" required id="longitude"/>
-                            </div>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="latitude">Latitude</label>--}}
+{{--                                <input type="text" name="latitude" class="form-control" required id="latitude"/>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="longitude">Latitude</label>--}}
+{{--                                <input type="text" name="longitude" class="form-control" required id="longitude"/>--}}
+{{--                            </div>--}}
+{{--                            <div class="form-group">--}}
+{{--                                <label for="iframe">Iframe</label>--}}
+{{--                                <textarea name="iframe" class="form-control" required id="iframe"></textarea>--}}
+{{--                            </div>--}}
                             <div class="form-group">
                                 <label for="photo">Image</label>
                                 <input type="file"  name="photo" class="form-control" multiple  id="photo"/>

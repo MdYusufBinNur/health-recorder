@@ -168,8 +168,10 @@ function loadHospital (response) {
     $('#id').val(response.id);
     $('#name').val(response.name);
     $('#details').val(response.details);
-    $('#latitude').val(response.latitude);
-    $('#longitude').val(response.longitude);
+    // $('#latitude').val(response.latitude);
+    // $('#longitude').val(response.longitude);
+    // $('#iframe').val(response.iframe);
+    $('#center').val(response.center);
     $('#contact').val(response.contact);
     $('#address').val(response.address);
     $('#old_photo').attr('src', response.image);
