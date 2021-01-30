@@ -32,7 +32,6 @@
                                     <tr>
                                         <th class="text-center"> Sl</th>
                                         <th class="text-center"> Name</th>
-                                        <th class="text-center"> Hospital</th>
                                         <th class="text-center disabled-sorting">Actions</th>
                                     </tr>
                                     </thead>
@@ -43,7 +42,6 @@
                                             <tr>
                                                 <td class="text-center">{!! $i+1 !!}</td>
                                                 <td class="text-center">{!! $department->name !!}</td>
-                                                <td class="text-center">{!! $department->hospital->name !!}</td>
                                                 <td class="text-center">
                                                     <a href="#" class="btn btn-simple btn-warning btn-icon edit"
                                                        data-toggle="modal" data-body="{{ "department" }}"
@@ -84,24 +82,12 @@
                             <input type="hidden" id="id" name="id">
 
                             <div class="form-group">
-
-                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7"
-                                        onchange="get_department(this)" name="hospital_id" id="hosp_id" required>
-                                    @if(!empty($hospitals))
-                                        @foreach($hospitals as $content)
-                                            <option value="{{ $content->id }}">{{ $content->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-
-                            </div>
-                            <div class="form-group">
                                 <label for="title">Name</label>
                                 <input type="text" name="name" id="name" class="form-control" required/>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file" name="photo" class="form-control" multiple id="photo"/>
+                                <input type="file" name="photo" class="form-control"  id="photo"/>
                             </div>
 
                             <div class="form-group">
@@ -131,23 +117,12 @@
                     <div class="modal-body">
                         <div class="row" style="padding: 10px">
                             <div class="form-group">
-
-                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7"
-                                        onchange="get_department(this)" name="hospital_id" id="hospital_id" required>
-                                    @if(!empty($hospitals))
-                                        @foreach($hospitals as $content)
-                                            <option value="{{ $content->id }}">{{ $content->name }}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                            <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" id="name" class="form-control" required/>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file" name="photo" class="form-control" multiple id="photo" required/>
+                                <input type="file" name="photo" class="form-control"  id="photo" required/>
                             </div>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ class ScheduleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return JsonResponse
+     * @return string
      */
     public function store(Request $request)
     {
@@ -79,7 +79,7 @@ class ScheduleController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Schedule $schedule
-     * @return JsonResponse
+     * @return string
      */
     public function destroy(Schedule $schedule)
     {

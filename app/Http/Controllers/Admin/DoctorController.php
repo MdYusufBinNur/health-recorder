@@ -27,8 +27,8 @@ class DoctorController extends Controller
     {
         $hospitals = Hospital::all();
         $doctors = Doctor::all();
-        $department = Department::all();
-        return view('Admin.CMS.doctor', compact('doctors','hospitals','department'));
+        $departments = Department::all();
+        return view('Admin.CMS.doctor', compact('doctors','hospitals','departments'));
     }
 
     /**

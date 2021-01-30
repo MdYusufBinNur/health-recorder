@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Admin\Department;
 use App\Admin\Hospital;
 use App\Helper\Common;
 use App\Http\Controllers\Controller;
@@ -22,7 +23,8 @@ class HospitalController extends Controller
     public function index()
     {
          $hospitals = Hospital::all();
-        return view('Admin.CMS.hospital', compact('hospitals'));
+         $departments = Department::all();
+        return view('Admin.CMS.hospital', compact('hospitals','departments'));
     }
 
     /**

@@ -86,10 +86,11 @@
                     <div class="modal-body">
                         <div class="row" style="padding: 10px">
                             <input type="hidden" id="id" name="id">
-
+                            <label for="hosp_id">Select Hospital<star>*</star></label>
                             <div class="form-group">
 
-                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7" onchange="get_department(this)" name="hospital_id" id="hosp_id" required >
+{{--                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7" onchange="get_department(this)" name="hospital_id" id="hosp_id" required >--}}
+                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7"  name="hospital_id" id="hosp_id" required >
                                     @if(!empty($hospitals))
                                         @foreach($hospitals as $content)
                                             <option value="{{ $content->id }}">{{ $content->name }}</option>
@@ -98,11 +99,14 @@
                                 </select>
 
                             </div>
-                            <label for="">Select Department<star>*</star></label>
+                            <label for="dept_id">Select Department<star>*</star></label>
                             <div class="form-group">
-
                                 <select class="form-control sub_class generate_department"  name="department_id" id="dept_id" required="" tabindex="-98">
-
+                                    @if(!empty($departments))
+                                        @foreach($departments as $content)
+                                            <option value="{{ $content->id }}">{{ $content->name }}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">
@@ -116,10 +120,6 @@
                             <div class="form-group">
                                 <label for="day">Day</label>
                                 <input type="text"  name="day" id="day"  class="form-control"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="mobile">Mobile</label>
-                                <input type="number"  name="mobile" id="mobile" class="form-control" required/>
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
@@ -152,9 +152,11 @@
                     @csrf()
                     <div class="modal-body">
                         <div class="row" style="padding: 10px">
+                            <label for="hosp_id">Select Hospital<star>*</star></label>
                             <div class="form-group">
 
-                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7" onchange="get_department(this)" name="hospital_id" id="hospital_id" required >
+                                {{--                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7" onchange="get_department(this)" name="hospital_id" id="hosp_id" required >--}}
+                                <select class="form-control" data-style="btn-dark  btn-block" data-size="7"  name="hospital_id" id="hosp_id" required >
                                     @if(!empty($hospitals))
                                         @foreach($hospitals as $content)
                                             <option value="{{ $content->id }}">{{ $content->name }}</option>
@@ -163,11 +165,14 @@
                                 </select>
 
                             </div>
-                            <label for="">Select Department<star>*</star></label>
+                            <label for="dept_id">Select Department<star>*</star></label>
                             <div class="form-group">
-
-                                <select class="form-control sub_class generate_department" name="department_id"   required="" tabindex="-98">
-
+                                <select class="form-control sub_class generate_department"  name="department_id" id="dept_id" required="" tabindex="-98">
+                                    @if(!empty($departments))
+                                        @foreach($departments as $content)
+                                            <option value="{{ $content->id }}">{{ $content->name }}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">

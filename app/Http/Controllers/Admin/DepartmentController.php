@@ -59,7 +59,7 @@ class DepartmentController extends Controller
      */
     public function show(Department $department)
     {
-        return Department::with('hospital')->where('id','=', $department->id)->first();
+        return $department;
     }
 
     /**

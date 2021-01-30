@@ -8,13 +8,13 @@ class Department extends Model
 {
     protected $guarded = [];
 
-    public function hospital()
-    {
-        return $this->belongsTo(Hospital::class,'hospital_id');
-    }
-
     public function doctor()
     {
         return $this->hasMany(Doctor::class);
+    }
+
+    public function hospital()
+    {
+        return $this->hasManyThrough(Doctor::class, Hospital::class);
     }
 }

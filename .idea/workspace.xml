@@ -22,11 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="">
+    <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="Appointment and doctor crud done">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2020_12_15_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_3_2020_12_15_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_08_092057_create_hospitals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_092057_create_hospitals_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Department.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Hospital.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Hospital.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DepartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DepartmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/DoctorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HospitalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ScheduleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_08_092058_create_departments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_08_092058_create_departments_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/Admin/paper_dashboard/assets/js/datatable_search_pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Admin/paper_dashboard/assets/js/datatable_search_pagination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Admin/CMS/hospital.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/CMS/hospital.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/CMS/departments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/CMS/departments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Admin/CMS/doctor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Admin/CMS/doctor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +182,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Admin/CMS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../health-recorder-app" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -201,7 +211,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -299,13 +309,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial For Office" />
@@ -338,10 +347,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="129" y="55" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1611857729399" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604831539163">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1611981531350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604831539163" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1611981531350" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1604386124667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -375,10 +384,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="564" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1611742074392" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1611932602831">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611982037008">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611982037008" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1612008911935">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612008911935" />
+    <state x="486" y="70" width="945" height="969" key="search.everywhere.popup" timestamp="1612016024931">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1611932602831" />
-    <state x="486" y="70" width="945" height="969" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611842585906" />
+    <state x="486" y="70" width="945" height="969" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612016024931" />
   </component>
 </project>

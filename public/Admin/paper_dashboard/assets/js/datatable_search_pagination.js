@@ -180,6 +180,8 @@ function loadDoctor (response) {
     $('#id').val(response.id);
     $('#name').val(response.name);
     $('#designation').val(response.designation);
+    $('#day').val(response.day);
+    $('#mobile').val(response.mobile);
     $('#hosp_id').append("<option  value=" + response.hospital.id + "  selected> " + response.hospital.name + " </option>")
     $('#dept_id').append("<option  value=" + response.department.id + "  > " + response.department.name + " </option>")
     $('#old_photo').attr('src', response.image);
@@ -203,9 +205,10 @@ function loadDonor (response) {
     $('#area').val(response.area);
 }
 function loadDepartment (response) {
+    console.log(response)
     $('#id').val(response.id);
     $('#name').val(response.name);
-    $('#hosp_id').append("<option  value=" + response.hospital.id + "  selected> " + response.hospital.name + " </option>")
+    // $('#hosp_id').append("<option  value=" + response.hospital.id + "  selected> " + response.hospital.name + " </option>")
     $('#old_photo').attr('src', response.image);
 }
 
