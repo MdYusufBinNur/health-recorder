@@ -12,15 +12,13 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        try {
-            if ($this->validator($request->all())->validate()->fails()) {
-                return response()->json("Check Required Fields");
-            }
-        } catch (ValidationException $e) {
-        }
-        $this->validator($request->all())->validate();
+        $request->validate([
+            'email'=>'email|required|unique:users',
+            'password'=>'required',
+        ]);
+        $validatedData = $request->all();
         $validatedData['password'] = bcrypt($request->password);
-
+        //return $validatedData;
         $user = User::create($validatedData);
 
         $accessToken = $user->createToken('authToken')->accessToken;
@@ -58,7 +56,7 @@ class AuthController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'mobile' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
     }
 }
