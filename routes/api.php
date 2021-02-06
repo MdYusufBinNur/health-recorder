@@ -42,3 +42,4 @@ Route::get('hospitals','Admin\ApiController@getHospitals');
 Route::get('hospital/{id}','Admin\ApiController@getHospitalDetails');
 Route::get('appointment/{id}','Admin\ApiController@getAppointmentList');
 Route::get('schedule/{id}','Admin\ApiController@getScheduleList');
+Route::get('/indexInfo', 'Admin\ApiController@getIndexInfo');

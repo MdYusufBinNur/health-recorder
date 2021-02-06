@@ -23,7 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de021e01-ebca-413d-959f-70db1e0d7273" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/ModifyHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/ModifyHeader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +227,7 @@
       <workItem from="1611849559586" duration="7598000" />
       <workItem from="1611891597306" duration="6741000" />
       <workItem from="1612280964105" duration="1596000" />
-      <workItem from="1612363999503" duration="8441000" />
+      <workItem from="1612363999503" duration="12827000" />
     </task>
     <task id="LOCAL-00001" summary="Helper Model Created For Insert Data">
       <created>1604838156371</created>
@@ -294,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612618312169</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Header Modified">
+      <created>1612619001364</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1612619001364</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,10 +345,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1611839160139" />
-    <state x="216" y="0" key="CommitChangelistDialog2" timestamp="1612618309360">
+    <state x="216" y="0" key="CommitChangelistDialog2" timestamp="1612619000243">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="216" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1612618309360" />
+    <state x="216" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1612619000243" />
     <state x="459" y="277" key="ComposerInitDialogKey" timestamp="1604367148274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -377,10 +389,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="356" y="86" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1612618191100" />
-    <state x="393" y="177" key="Vcs.Push.Dialog.v2" timestamp="1612618346968">
+    <state x="393" y="177" key="Vcs.Push.Dialog.v2" timestamp="1612619002808">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1612618346968" />
+    <state x="393" y="177" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1612619002808" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1611842685526" />
     <state x="401" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612412310051">
       <screen x="0" y="0" width="1366" height="728" />
@@ -395,10 +407,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612008911935" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1612381419052">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1612625494691">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1612381419052" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1612625494691" />
     <state x="486" y="70" width="945" height="969" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612016024931" />
   </component>
 </project>

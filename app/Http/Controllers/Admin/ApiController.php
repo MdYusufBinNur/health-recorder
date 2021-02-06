@@ -13,6 +13,7 @@ use App\Admin\Slider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Comment\Doc;
 
 class ApiController extends Controller
 {
@@ -68,5 +69,12 @@ class ApiController extends Controller
 
     public function getScheduleList($id) {
         return Schedule::where('user_id',$id)->get();
+    }
+
+    public function getIndexInfo() {
+        $hospitals = Hospital::all()->count();
+        $doctors = Doctor::all()->count();
+        $donors = Donor::all()->count();
+        return response()->json(compact('hospitals','doctors','donors'));
     }
 }
