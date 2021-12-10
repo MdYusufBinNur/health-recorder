@@ -74,7 +74,7 @@ $().ready(function () {
         let url = $(this).data('body');
         //alert(url)
         swal({
-                title: "Sue to change status ?",
+                title: "Sure to change status ?",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55",
@@ -181,6 +181,7 @@ function loadDoctor (response) {
     $('#name').val(response.name);
     $('#designation').val(response.designation);
     $('#day').val(response.day);
+    $('#fee').val(response.fee);
     $('#mobile').val(response.mobile);
     $('#hosp_id').append("<option  value=" + response.hospital.id + "  selected> " + response.hospital.name + " </option>")
     $('#dept_id').append("<option  value=" + response.department.id + "  > " + response.department.name + " </option>")
