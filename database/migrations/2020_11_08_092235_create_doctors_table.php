@@ -20,6 +20,7 @@ class CreateDoctorsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('designation');
+            $table->double('fee')->default(300);
             $table->string('day')->nullable();
             $table->string('image')->nullable();
             $table->string('rating')->default(0);

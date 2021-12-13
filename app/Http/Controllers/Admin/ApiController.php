@@ -77,4 +77,17 @@ class ApiController extends Controller
         $donors = Donor::all()->count();
         return response()->json(compact('hospitals','doctors','donors'));
     }
+
+    public function savePayment(Request $request)
+    {
+        $appointment = Appointment::query()->find($request->appointment_id);
+        if ($appointment && $appointment->update(['payment' => true,'payment_mobile' => $request->payment_mobile])) {
+            return response()->json([
+                'message' => 'Payment Completed',
+            ], 200);
+        }
+        return response()->json([
+            'message' => 'Something went wrong'
+        ], 500);
+    }
 }

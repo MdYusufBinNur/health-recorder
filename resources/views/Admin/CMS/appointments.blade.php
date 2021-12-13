@@ -30,6 +30,7 @@
                                         <th class="text-center"> Age</th>
                                         <th class="text-center"> Date</th>
                                         <th class="text-center"> Hospital</th>
+                                        <th class="text-center"> Payment</th>
                                         <th class="text-center disabled-sorting">Actions</th>
                                     </tr>
                                     </thead>
@@ -54,6 +55,20 @@
                                                 <td class="text-center">{!! $appointment->patient_age !!}</td>
                                                 <td class="text-center">{!! $appointment->date !!}</td>
                                                 <td class="text-center">{!! $appointment->hospital->name !!}</td>
+                                                <td class="text-center">
+
+                                                    @if($appointment->payment === 1)
+
+                                                        <button class="btn btn-info btn-fill btn-sm btn-block">
+                                                            Paid
+                                                        </button>
+
+                                                        @else
+                                                        <button class="btn btn-warning btn-fill btn-sm btn-block">
+                                                            Unpaid
+                                                        </button>
+                                                    @endif
+                                                </td>
                                                 <td class="text-center">
                                                     @if($appointment->status === 'pending')
                                                         <a href="#?"

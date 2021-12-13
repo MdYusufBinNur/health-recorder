@@ -24,6 +24,8 @@ class CreateAppointmentsTable extends Migration
             $table->double('patient_age')->default(10);
             $table->time('time')->nullable();
             $table->date('date')->nullable();
+            $table->double('amount')->default(500);
+            $table->boolean('payment')->default(false);
             $table->string('status')->default('pending');
             $table->timestamps();
 

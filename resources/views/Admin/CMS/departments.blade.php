@@ -122,7 +122,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file" name="photo" class="form-control"  id="photo" required/>
+                                <input type="file" name="photo" class="form-control"  id="photo" />
                             </div>
                         </div>
                     </div>

@@ -188,6 +188,7 @@ class Common
 
                     $role = $requestedData['role'];
                     $mobile = $requestedData['mobile'];
+                    $fee = $requestedData['fee'];
                     $password = Hash::make($requestedData['password']);
                     $checkEmail = User::where('email', $email)->first();
                     if ($checkEmail)
@@ -209,6 +210,7 @@ class Common
                        $newDoctor->designation = $requestedData['designation'];
                        $newDoctor->image = $requestedData['image'];
                        $newDoctor->day = $requestedData['day'];
+                       $newDoctor->fee = $requestedData['fee'];
                        if ($newDoctor->save()) {
                            return self::_response('', false, self::MESSAGE_SUCCESS);
                        }

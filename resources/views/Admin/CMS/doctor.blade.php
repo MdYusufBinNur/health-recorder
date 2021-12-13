@@ -118,6 +118,10 @@
                                 <input type="text"  name="designation" id="designation"  class="form-control"/>
                             </div>
                             <div class="form-group">
+                                <label for="designation">Fee</label>
+                                <input type="number"  name="fee" id="fee"  class="form-control"/>
+                            </div>
+                            <div class="form-group">
                                 <label for="day">Day</label>
                                 <input type="text"  name="day" id="day"  class="form-control"/>
                             </div>
@@ -188,6 +192,10 @@
                                 <input type="number"  name="mobile" id="mobile" class="form-control" required/>
                             </div>
                             <div class="form-group">
+                                <label for="email">Fee</label>
+                                <input type="number"  name="fee" id="fee" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
                                 <label for="day">Day</label>
                                 <input type="text"  name="day" id="day" placeholder="monday-friday(5.00 - 7.00 AM)" class="form-control" required/>
                             </div>
@@ -199,7 +207,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="photo">Image</label>
-                                <input type="file"  name="photo" class="form-control"  id="photo" required/>
+                                <input type="file"  name="photo" class="form-control"  id="photo" />
                             </div>
 
                             <div class="form-group" >
